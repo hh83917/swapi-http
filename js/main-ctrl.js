@@ -1,11 +1,17 @@
 angular.module('StarWars').controller('MainCtrl', function($scope, CharacterService) {
 	
+	$scope.selectCharacter = function(char) {
+		CharacterService.getCharacterData(char)
+			.then(function(charComplete) {
+				$scope.selectedCharacter = charComplete;
+			});
+	};
 
 	CharacterService.getCharacters()
-		.then(function(result) {
-			console.log(result);
-			console.log(result.data);
-			$scope.characters = result.data.results;
+		.then(function(characters) {
+			$scope.characters = characters;
 		});
 
 });
+
+

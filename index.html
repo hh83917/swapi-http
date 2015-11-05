@@ -3,8 +3,26 @@
 		<div ng-app="StarWars">
 			<h1>Star Wars</h1>
 			<div ng-controller="MainCtrl">
-				<div ng-repeat="char in characters">
+				<div ng-repeat="char in characters" ng-click="selectCharacter(char)" style="cursor:pointer">
 					{{char.name}} ({{char.gender}})
+				</div>
+				<div>
+					<h2>Character Info</h2>
+					<div>
+						Homeworld: {{selectedCharacter.homeword}}
+					</div>
+					<div>
+						Gender: {{selectedCharacter.gender}}
+					</div>
+					<div>
+						Eye Color: {{selectedCharacter.eye_color}}
+					</div>
+					<div>
+						Skin Color: {{selectedCharacter.skin_color}}
+					</div>
+					<div>
+						Birth Year: {{selectedCharacter.birth_year}}
+					</div>
 				</div>
 			</div>
 		</div>
